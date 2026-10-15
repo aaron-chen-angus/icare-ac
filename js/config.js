@@ -116,7 +116,7 @@ export const CONFIG = {
 
   sounds: { enabled: true, vibrate: true },
 
-  sheets: { webhookUrl: '', uploadFrames: false },
+  sheets: { webhookUrl: 'https://script.google.com/macros/s/AKfycbzMy5Ei7r67DlUScWg48SA-Z1mNuy9KnPa0g6pEPU82rAstku8RKfHZXaQqt0ulpwY3/exec', uploadFrames: false },
 
   storage: { historyKey: 'acLab_history', outboxKey: 'acLab_outbox', historyCap: 300 },
 
