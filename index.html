@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05070d">
+  <title>AC//LAB — Arm Curl Biomechanics Lab</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="css/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+
+  <!-- ROTATE OVERLAY (portrait guard) -->
+  <div id="rotate" role="dialog" aria-label="Rotate your phone">
+    <div class="icon">📱</div>
+    <div class="t">ROTATE YOUR PHONE</div>
+    <p class="note">AC//LAB runs in portrait. Any running test is paused.</p>
+  </div>
+
+  <div class="app">
+    <!-- ============ SCREEN 1: ENTRY ============ -->
+    <section id="screen-entry" class="screen active" aria-labelledby="entry-h">
+      <header class="masthead">
+        <div class="logo" id="entry-h">AC<span class="slash">//</span>LAB</div>
+        <div class="subtitle">Arm Curl Biomechanics Lab</div>
+      </header>
+
+      <div class="panel">
+        <span class="bracket tl"></span><span class="bracket br"></span>
+        <h2>Setup protocol</h2>
+        <ol class="steps">
+          <li>Straight-back chair <strong>without arms</strong>; sit tall, feet flat.</li>
+          <li>Phone propped <strong>side-on to the dominant arm</strong>, 1.5–2.5 m away, around shoulder height.</li>
+          <li>Weight in the <strong>dominant hand</strong>, arm hanging straight down (handshake grip).</li>
+          <li>Keep the <strong>upper arm still</strong>; curl fully, turning the palm up, then lower fully.</li>
+          <li>Do <strong>30 seconds</strong> of curls after 1–2 practice reps.</li>
+        </ol>
+      </div>
+
+      <form id="entry-form" novalidate>
+        <div class="panel">
+          <span class="bracket tl"></span><span class="bracket br"></span>
+          <h2>Participant</h2>
+          <div class="grid2">
+            <div class="field"><label for="participant_id">Participant ID <span class="req">*</span></label>
+              <input id="participant_id" name="participant_id" autocomplete="off" inputmode="text">
+              <div class="err" data-err="participant_id"></div></div>
+            <div class="field"><label for="age_years">Age <span class="req">*</span></label>
+              <input id="age_years" name="age_years" type="number" min="18" max="110" inputmode="numeric">
+              <div class="err" data-err="age_years"></div></div>
+            <div class="field"><label for="sex">Sex <span class="req">*</span></label>
+              <select id="sex" name="sex">
+                <option value="">—</option><option value="female">Female</option>
+                <option value="male">Male</option><option value="other">Other / prefer not to say</option>
+              </select><div class="err" data-err="sex"></div></div>
+            <div class="field"><label for="height_cm">Height cm <span class="req">*</span></label>
+              <input id="height_cm" name="height_cm" type="number" min="120" max="210" inputmode="decimal">
+              <div class="err" data-err="height_cm"></div></div>
+            <div class="field"><label for="body_mass_kg">Body mass kg</label>
+              <input id="body_mass_kg" name="body_mass_kg" type="number" min="20" max="250" inputmode="decimal">
+              <div class="err" data-err="body_mass_kg"></div></div>
+            <div class="field"><label for="test_arm">Dominant arm <span class="req">*</span></label>
+              <select id="test_arm" name="test_arm">
+                <option value="">—</option><option value="right">Right</option><option value="left">Left</option>
+              </select><div class="err" data-err="test_arm"></div></div>
+            <div class="field"><label for="dumbbell_kg">Dumbbell weight kg <span class="req">*</span></label>
+              <input id="dumbbell_kg" name="dumbbell_kg" type="number" min="0" max="20" step="0.01" inputmode="decimal">
+              <div class="err" data-err="dumbbell_kg"></div></div>
+            <div class="field"><label for="chair_seat_height_cm">Chair seat height cm</label>
+              <input id="chair_seat_height_cm" name="chair_seat_height_cm" type="number" min="20" max="70" inputmode="decimal"></div>
+            <div class="field"><label for="site">Site / session</label>
+              <input id="site" name="site" autocomplete="off"></div>
+            <div class="field"><label for="camera_facing">Camera</label>
+              <select id="camera_facing" name="camera_facing">
+                <option value="rear">Rear</option><option value="front">Front</option>
+              </select></div>
+            <div class="field"><label for="pose_model">Pose model</label>
+              <select id="pose_model" name="pose_model">
+                <option value="lite">Lite (fast)</option><option value="full" selected>Full</option><option value="heavy">Heavy (accurate)</option>
+              </select></div>
+          </div>
+          <div class="field"><label for="operator_notes">Operator notes (no identifying information)</label>
+            <textarea id="operator_notes" name="operator_notes"></textarea></div>
+        </div>
+
+        <div class="panel checks">
+          <span class="bracket tl"></span><span class="bracket br"></span>
+          <h2>Confirmations</h2>
+          <label><input type="checkbox" id="safety"> The participant is fit to do this test and is supervised.</label>
+          <label><input type="checkbox" id="protocol_briefed"> The participant has been briefed (seated, upper arm still, full ROM).</label>
+          <label id="consent-wrap" hidden><input type="checkbox" id="consent"> I consent to uploading the numeric results (no video) to the study sheet.</label>
+          <p class="note" id="consent-note">Cloud upload not configured — results are saved locally and can be downloaded.</p>
+        </div>
+      </form>
+
+      <div class="panel">
+        <span class="bracket tl"></span><span class="bracket br"></span>
+        <h2>Instruction video</h2>
+        <p class="note" id="lang-prompt">Choose a language to see the instruction video.</p>
+        <div class="lang-buttons" id="lang-buttons">
+          <button type="button" class="btn" data-lang="en">ENGLISH</button>
+          <button type="button" class="btn" data-lang="zh">中文 · 普通话 (MANDARIN)</button>
+          <button type="button" class="btn" data-lang="yue">粵語 · CANTONESE</button>
+        </div>
+        <div id="video-area" hidden>
+          <div class="lang-switch" id="lang-switch"></div>
+          <div class="video-frame"><iframe id="yt" title="Instruction video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <a class="yt-fallback" id="yt-fallback" href="#" target="_blank" rel="noopener">Open on YouTube ▸</a>
+        </div>
+      </div>
+
+      <div id="proceed-area" hidden>
+        <div class="controls">
+          <button type="button" class="btn btn-primary" id="btn-proceed" disabled>PROCEED TO TEST</button>
+        </div>
+        <div class="err" id="proceed-err" aria-live="polite"></div>
+        <p class="note" id="model-status" aria-live="polite"></p>
+      </div>
+
+      <details>
+        <summary>Privacy &amp; history</summary>
+        <p class="note">Your video is processed on this device only. It is never stored or uploaded — only numeric results are saved, and only if you consent.</p>
+        <div class="controls"><button type="button" class="btn btn-ghost" id="btn-history-entry">History &amp; unsent data</button></div>
+      </details>
+
+      <footer class="limits">
+        Research / screening instrument — <strong>not a medical device</strong>. 2-D sagittal estimates; many thresholds are unvalidated engineering defaults [TUNE]. Upper-arm-swing is a heuristic.
+        <div class="version" id="version-foot"></div>
+      </footer>
+    </section>
+
+    <!-- ============ SCREEN 2+3: LIVE (framing/countdown/test) ============ -->
+    <section id="screen-live" class="screen fullbleed" aria-label="Live test">
+      <div class="stage">
+        <video id="cam" playsinline muted></video>
+        <canvas id="overlay" class="overlay"></canvas>
+
+        <div class="chips" id="chips" hidden></div>
+        <div class="readiness-msg" id="readiness" aria-live="polite" hidden>Starting camera…</div>
+
+        <div class="hud time" id="hud-time" hidden>30</div>
+        <div class="hud count" id="hud-count" hidden><div class="n" id="hud-count-n">0</div><div class="lbl">CURLS (LIVE)</div></div>
+        <div class="hud angles" id="hud-angles" hidden>
+          <div class="row"><span class="k">Elbow</span><span id="a-elbow">—</span></div>
+          <div class="row"><span class="k">Shoulder</span><span id="a-shoulder">—</span></div>
+          <div class="row"><span class="k">Trunk</span><span id="a-trunk">—</span></div>
+          <div class="row"><span class="k">Progress</span><span id="a-prog">—</span></div>
+          <div class="row"><span class="k">FPS</span><span id="a-fps">—</span></div>
+        </div>
+        <div class="hud overlay-msg" id="hud-msg" hidden></div>
+
+        <div class="live-controls" id="live-controls"></div>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN 4: PROCESSING ============ -->
+    <section id="screen-processing" class="screen" aria-label="Analysing">
+      <header class="masthead"><div class="logo">AC<span class="slash">//</span>LAB</div></header>
+      <div class="panel">
+        <span class="bracket tl"></span><span class="bracket br"></span>
+        <h2 id="proc-status">Analysing…</h2>
+        <div class="progress-track"><div class="progress-bar" id="proc-bar"></div></div>
+        <p class="note">Running the offline biomechanics engine on this device.</p>
+      </div>
+    </section>
+
+    <!-- ============ SCREEN 5: RESULTS ============ -->
+    <section id="screen-results" class="screen" aria-labelledby="res-h">
+      <header class="masthead"><div class="logo" id="res-h">AC<span class="slash">//</span>LAB</div><div class="subtitle">Results</div></header>
+      <div class="big-count"><div class="n" id="res-count">0</div><div class="lbl">Curls in 30 s</div></div>
+      <div class="badges" id="res-badges"></div>
+      <div class="tiles" id="res-tiles"></div>
+
+      <div class="panel"><span class="bracket tl"></span><span class="bracket br"></span>
+        <h2>Charts</h2>
+        <canvas id="chart-progress" data-ratio="0.5"></canvas>
+        <canvas id="chart-angles" data-ratio="0.5"></canvas>
+        <canvas id="chart-vel" data-ratio="0.5"></canvas>
+        <canvas id="chart-cycle" data-ratio="0.5"></canvas>
+        <canvas id="chart-rom" data-ratio="0.5"></canvas>
+        <canvas id="chart-swing" data-ratio="0.5"></canvas>
+      </div>
+
+      <div class="panel"><span class="bracket tl"></span><span class="bracket br"></span>
+        <h2>Per-rep</h2>
+        <div class="table-wrap"><table class="reps" id="res-reps"></table></div>
+      </div>
+
+      <div class="panel" id="flags-panel" hidden><span class="bracket tl"></span><span class="bracket br"></span>
+        <h2>Quality flags</h2>
+        <ul class="flags" id="res-flags"></ul>
+      </div>
+
+      <details><summary>Data quality</summary><div id="res-quality" class="note"></div></details>
+      <details><summary>All metrics</summary><div class="table-wrap"><table class="reps" id="res-allmetrics"></table></div></details>
+
+      <div class="status-line" id="res-upload" aria-live="polite"></div>
+
+      <div class="controls" id="res-controls"></div>
+      <footer class="limits" id="res-limits">Research / screening instrument — not a medical device.</footer>
+    </section>
+
+    <!-- ============ SCREEN 6: HISTORY ============ -->
+    <section id="screen-history" class="screen" aria-labelledby="hist-h">
+      <header class="masthead"><div class="logo" id="hist-h">AC<span class="slash">//</span>LAB</div><div class="subtitle">History</div></header>
+      <div class="panel"><span class="bracket tl"></span><span class="bracket br"></span>
+        <h2>Saved sessions</h2>
+        <div id="hist-list"></div>
+        <div class="status-line" id="hist-status" aria-live="polite"></div>
+        <div class="controls">
+          <button type="button" class="btn" id="btn-retry-outbox">Retry now</button>
+          <button type="button" class="btn btn-danger" id="btn-clear-history">Clear local history</button>
+          <button type="button" class="btn btn-primary" id="btn-history-back">Back</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- confirm dialog -->
+  <div class="dialog-back" id="dialog-back">
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+      <h3 id="dlg-title">Confirm</h3>
+      <p id="dlg-body"></p>
+      <div class="controls">
+        <button type="button" class="btn btn-ghost" id="dlg-cancel">Cancel</button>
+        <button type="button" class="btn btn-primary" id="dlg-ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

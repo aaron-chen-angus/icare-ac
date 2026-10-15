@@ -1,0 +1,19 @@
+{
+  "name": "AC//LAB — Arm Curl Biomechanics Lab",
+  "short_name": "AC//LAB",
+  "description": "Browser-based computer-vision 30-second Arm Curl test (Senior Fitness Test).",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05070d",
+  "theme_color": "#05070d",
+  "icons": [
+    {
+      "src": "css/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

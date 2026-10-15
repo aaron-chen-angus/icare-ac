@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AC//LAB tests</title>
+  <style>
+    body { background:#05070d; color:#dfe9ff; font-family:ui-monospace,Consolas,monospace; padding:16px; }
+    h1 { color:#ff6a00; font-family:system-ui; }
+    pre { white-space:pre-wrap; line-height:1.5; }
+    .ok { color:#4cdf7c; } .bad { color:#ff3b30; }
+  </style>
+</head>
+<body>
+  <h1>AC//LAB — analysis unit tests</h1>
+  <p>Open this file over <strong>http(s)://</strong> (ES modules do not load from file://). Try the Node runner too: <code>node tests/run.js</code>.</p>
+  <pre id="out">Running…</pre>
+  <script type="module">
+    import './run.js';
+    // colourise after run.js writes #out
+    setTimeout(() => {
+      const pre = document.getElementById('out');
+      pre.innerHTML = pre.textContent
+        .replace(/( PASS .*)/g, '<span class="ok">$1</span>')
+        .replace(/( FAIL .*)/g, '<span class="bad">$1</span>');
+    }, 50);
+  </script>
+</body>
+</html>
