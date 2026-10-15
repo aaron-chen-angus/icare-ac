@@ -18,37 +18,63 @@
 ## Table of contents
 
 **Part I — Overview**
+
 1. [What AC//LAB does](#1-what-aclab-does)
+
 2. [Quick links](#2-quick-links)
 
 **Part II — Scientific & Clinical Manual**
+
 3. [The 30-Second Arm Curl Test: origin and purpose](#3-the-30-second-arm-curl-test-origin-and-purpose)
-4. [Clinical and sports-medicine basis](#4-clinical-and-sports-medicine-basis)
+
+4. [Clinical and sports-medicine basis](#4-clinical-and-sports-medicine-basis) 
+
 5. [Standardised test protocol](#5-standardised-test-protocol)
-6. [Published normative data](#6-published-normative-data)
-7. [Biomechanical basis](#7-biomechanical-basis)
+
+6. [Published normative data](#6-published-normative-data)  
+
+7. [Biomechanical basis](#7-biomechanical-basis)   
+
 8. [Metrics captured and their scientific rationale](#8-metrics-captured-and-their-scientific-rationale)
 
 **Part III — Technical Manual**
+
 9. [System overview and architecture](#9-system-overview-and-architecture)
+
 10. [Computer-vision pipeline](#10-computer-vision-pipeline)
+
 11. [Signal processing and analysis engine](#11-signal-processing-and-analysis-engine)
+
 12. [Repetition-counting algorithm](#12-repetition-counting-algorithm)
+
 13. [Quality control](#13-quality-control)
+
 14. [Data model, export and Google Sheets integration](#14-data-model-export-and-google-sheets-integration)
+
 15. [Privacy, security and data governance](#15-privacy-security-and-data-governance)
+
 16. [Responsive design and accessibility](#16-responsive-design-and-accessibility)
 
 **Part IV — Operations**
+
 17. [Installation and deployment](#17-installation-and-deployment)
+
 18. [Operator guide](#18-operator-guide)
+
 19. [Configuration and tuning](#19-configuration-and-tuning)
+
 20. [Testing](#20-testing)
+
 21. [Validation plan](#21-validation-plan)
+
 22. [Limitations](#22-limitations)
+
 23. [Project structure](#23-project-structure)
+
 24. [Glossary](#24-glossary)
+
 25. [References (APA)](#25-references-apa-7th-edition)
+
 
 ---
 ---
